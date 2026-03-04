@@ -1,0 +1,142 @@
+#app {
+    height: 100vh;
+    text-align: center;
+}
+
+#logo {
+    display: block;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    padding: 10% 0 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-origin: content-box;
+}
+
+.result {
+    height: 20px;
+    line-height: 20px;
+    margin: 1.5rem auto;
+}
+.input-box {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+.input-box .btn {
+    border-radius: 3px;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.input-box .btn:hover {
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    color: #333333;
+}
+
+.input-box .input {
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    background-color: rgba(240, 240, 240, 1);
+    -webkit-font-smoothing: antialiased;
+}
+
+.input-box .input:hover {
+    border: none;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.input-box .input:focus {
+    border: none;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.section {
+    margin: 1.5rem auto;
+    text-align: left;
+    max-width: 560px;
+}
+
+.section h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+}
+
+.help-text {
+    margin: 0.5rem 0 0;
+    padding: 0.75rem;
+    background: rgba(40, 50, 70, 1);
+    border-radius: 4px;
+    white-space: pre-wrap;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+.status {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #b0c4de;
+}
+
+.status.error {
+    color: #e88;
+}
+
+.result.error {
+    color: #e88;
+}
+
+.input-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    min-width: 500px;
+}
+
+.input-row .input {
+    flex: 1;
+    min-width: 120px;
+}
+
+.input-short {
+    max-width: 100px;
+}
+
+.input-select {
+    max-width: 120px;
+}
+
+.btn-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.btn-row .btn {
+    margin-left: 0;
+}
+
+.hint {
+    margin: 0 0 0.5rem;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.section .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.print-output {
+    max-height: 200px;
+    overflow: auto;
+}
