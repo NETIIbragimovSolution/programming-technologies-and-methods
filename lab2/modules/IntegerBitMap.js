@@ -1,6 +1,6 @@
 'use strict';
 
-import { HEADER_SIZE, INT_SIZE } from './data/constants';
+import { HEADER_SIZE, INT_SIZE } from '../data/constants';
 
 const fs = require('fs');
 

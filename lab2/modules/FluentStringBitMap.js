@@ -1,6 +1,6 @@
 'use strict';
 
-import { PAGE_SIZE } from "./data/constants";
+import { PAGE_SIZE } from "../data/constants";
 
 const fs = require("fs");
 

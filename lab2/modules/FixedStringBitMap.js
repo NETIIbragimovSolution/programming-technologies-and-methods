@@ -1,6 +1,6 @@
 'use strict';
 
-import { HEADER_SIZE, PAGE_SIZE } from './data/constants';
+import { HEADER_SIZE, PAGE_SIZE } from '../data/constants';
 
 const fs = require('fs');
 
