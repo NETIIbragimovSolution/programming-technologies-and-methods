@@ -1,0 +1,8 @@
+const HEADER_SIZE = 11;
+
+const PAGE_SIZE = 512;
+
+const INT_SIZE = Int32Array.BYTES_PER_ELEMENT;
+
+
+export { HEADER_SIZE, INT_SIZE, PAGE_SIZE }
