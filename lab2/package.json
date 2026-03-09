@@ -1,0 +1,11 @@
+{
+  "name": "lab2-virtual-memory",
+  "version": "1.0.0",
+  "description": "Виртуальная память: массивы int/char/varchar с буфером страниц",
+  "type": "module",
+  "main": "app/consoleApp.js",
+  "scripts": {
+    "start": "node app/consoleApp.js",
+    "test": "node test.js"
+  }
+}
