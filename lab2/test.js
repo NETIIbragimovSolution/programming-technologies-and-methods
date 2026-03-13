@@ -74,7 +74,7 @@ ok('setAt(5, 555); getAt(5) === 555', arrAt.getAt(5) === 555);
 ok('getAt(5) === get(5)', arrAt.get(5) === 555);
 arrAt.close();
 
-console.log('\n--- get/set Out of range');
+console.log('\n--- Ошибочные ситуации: индекс за границы массива');
 unlinkSafe(path.join(TMP, 'vma-bounds.bin'));
 const arrBounds = new VirtualMemoryArray(path.join(TMP, 'vma-bounds.bin'), 10, 'int');
 throwsOk('get(-1) бросает Out of range', () => arrBounds.get(-1), 'Out of range');
@@ -83,7 +83,60 @@ throwsOk('set(-1, 1) бросает', () => arrBounds.set(-1, 1), 'Out of range'
 throwsOk('set(10, 1) бросает', () => arrBounds.set(10, 1), 'Out of range');
 arrBounds.close();
 
-// ========== getPageBufferIndex ==========
+console.log('\n--- Ошибочные ситуации: ошибка файловой операции');
+const badFile = path.join(TMP, 'vma-bad.bin');
+unlinkSafe(badFile);
+fs.writeFileSync(badFile, Buffer.from([0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]));
+throwsOk('открытие файла с неверной сигнатурой бросает', () => {
+  new VirtualMemoryArray(badFile, 10, 'int');
+}, 'Неверная сигнатура');
+unlinkSafe(badFile);
+
+const dirAsFile = path.join(TMP, 'dir-as-file');
+if (!fs.existsSync(dirAsFile)) fs.mkdirSync(dirAsFile, { recursive: true });
+throwsOk('открытие директории как файла бросает (EISDIR)', () => {
+  new VirtualMemoryArray(dirAsFile, 10, 'int');
+}, undefined);
+try { fs.rmdirSync(dirAsFile); } catch (_) {}
+
+console.log('\n--- Ошибочные ситуации: недостаточно места на диске (ENOSPC)');
+const enospcFile = path.join(TMP, 'vma-enospc.bin');
+unlinkSafe(enospcFile);
+const origWriteSync = fs.writeSync;
+let enospcCaught = false;
+try {
+  fs.writeSync = function () {
+    const err = new Error('ENOSPC: no space left on device');
+    err.code = 'ENOSPC';
+    throw err;
+  };
+  new VirtualMemoryArray(enospcFile, 100, 'int');
+} catch (e) {
+  enospcCaught = e.code === 'ENOSPC';
+} finally {
+  fs.writeSync = origWriteSync;
+}
+ok('при ENOSPC исключение имеет code ENOSPC', enospcCaught);
+unlinkSafe(enospcFile);
+
+console.log('\n--- Ошибочные ситуации: недостаточно оперативной памяти');
+const oomFile = path.join(TMP, 'vma-oom.bin');
+unlinkSafe(oomFile);
+const origBufferAlloc = Buffer.alloc;
+let oomCaught = false;
+try {
+  Buffer.alloc = function () {
+    throw new Error('Недостаточно оперативной памяти для размещения объекта.');
+  };
+  new VirtualMemoryArray(oomFile, 100, 'int');
+} catch (e) {
+  oomCaught = true;
+} finally {
+  Buffer.alloc = origBufferAlloc;
+}
+ok('при симуляции нехватки ОЗУ выбрасывается исключение', oomCaught);
+unlinkSafe(oomFile);
+
 console.log('\n--- getPageBufferIndex');
 unlinkSafe(path.join(TMP, 'vma-buf.bin'));
 const arrBuf = new VirtualMemoryArray(path.join(TMP, 'vma-buf.bin'), 20000, 'int');
@@ -92,7 +145,6 @@ ok('getPageBufferIndex(0) число', idx0 !== null && typeof idx0 === 'number'
 ok('getPageBufferIndex(-1) === null', arrBuf.getPageBufferIndex(-1) === null);
 ok('getPageBufferIndex(20000) === null', arrBuf.getPageBufferIndex(20000) === null);
 ok('getPageBufferIndex(19999) число', arrBuf.getPageBufferIndex(19999) !== null);
-// Вызов get/set использует getPageBufferIndex и _offsetInPage
 arrBuf.set(0, 1);
 arrBuf.set(128, 2);
 arrBuf.set(256, 3);
@@ -105,16 +157,6 @@ ok('reopen int get(0) === 42', arrInt3.get(0) === 42);
 ok('reopen int get(14999) === -1', arrInt3.get(14999) === -1);
 arrInt3.close();
 
-console.log('\n--- _readHeader неверная сигнатура');
-const badFile = path.join(TMP, 'vma-bad.bin');
-unlinkSafe(badFile);
-fs.writeFileSync(badFile, Buffer.from([0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]));
-throwsOk('открытие файла с неверной сигнатурой бросает', () => {
-  new VirtualMemoryArray(badFile, 10, 'int');
-}, 'Неверная сигнатура');
-unlinkSafe(badFile);
-
-// ========== char ==========
 console.log('\n--- char: _computeLayout, _readElementFromPage, _writeElementToPage');
 const charFile = path.join(TMP, 'vma-char.bin');
 unlinkSafe(charFile);
