@@ -1,0 +1,12 @@
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/MenuLib/bin/Debug/net9.0/MenuLib.deps.json
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/MenuLib/bin/Debug/net9.0/MenuLib.dll
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/MenuLib/bin/Debug/net9.0/MenuLib.pdb
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/MenuLib/obj/Debug/net9.0/MenuLib.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/MenuLib/obj/Debug/net9.0/MenuLib.AssemblyInfoInputs.cache
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/MenuLib/obj/Debug/net9.0/MenuLib.AssemblyInfo.cs
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/MenuLib/obj/Debug/net9.0/MenuLib.csproj.CoreCompileInputs.cache
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/MenuLib/obj/Debug/net9.0/MenuLib.sourcelink.json
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/MenuLib/obj/Debug/net9.0/MenuLib.dll
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/MenuLib/obj/Debug/net9.0/refint/MenuLib.dll
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/MenuLib/obj/Debug/net9.0/MenuLib.pdb
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/MenuLib/obj/Debug/net9.0/ref/MenuLib.dll

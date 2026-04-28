@@ -1,0 +1,12 @@
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/AuthLib/bin/Debug/net9.0/AuthLib.deps.json
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/AuthLib/bin/Debug/net9.0/AuthLib.dll
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/AuthLib/bin/Debug/net9.0/AuthLib.pdb
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/AuthLib/obj/Debug/net9.0/AuthLib.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/AuthLib/obj/Debug/net9.0/AuthLib.AssemblyInfoInputs.cache
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/AuthLib/obj/Debug/net9.0/AuthLib.AssemblyInfo.cs
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/AuthLib/obj/Debug/net9.0/AuthLib.csproj.CoreCompileInputs.cache
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/AuthLib/obj/Debug/net9.0/AuthLib.sourcelink.json
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/AuthLib/obj/Debug/net9.0/AuthLib.dll
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/AuthLib/obj/Debug/net9.0/refint/AuthLib.dll
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/AuthLib/obj/Debug/net9.0/AuthLib.pdb
+/Users/ibragimovemil/programming-technologies-and-methods/lab3/AuthLib/obj/Debug/net9.0/ref/AuthLib.dll
